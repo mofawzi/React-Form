@@ -1,9 +1,13 @@
 import React from "react";
 import useForm from "../hooks/useForm";
 import validate from "../validateInfo";
+import "./Form.css";
 
-const Signup = () => {
-  const { values, changeHandler, submitHandler, errors } = useForm(validate);
+const Signup = ({ submitForm }) => {
+  const { values, changeHandler, submitHandler, errors } = useForm(
+    submitForm,
+    validate
+  );
 
   return (
     <div>

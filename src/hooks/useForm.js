@@ -9,6 +9,7 @@ const useForm = (validate) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -21,6 +22,7 @@ const useForm = (validate) => {
   const submitHandler = (e) => {
     e.preventDefault();
     setErrors(validate(values));
+    setIsSubmitting(true);
   };
 
   return { values, changeHandler, submitHandler, errors };
