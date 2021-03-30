@@ -1,8 +1,9 @@
 import React from "react";
 import useForm from "../hooks/useForm";
+import validate from "../validateInfo";
 
 const Signup = () => {
-  const { values, changeHandler, submitHandler } = useForm();
+  const { values, changeHandler, submitHandler, errors } = useForm(validate);
 
   return (
     <div>
@@ -25,6 +26,7 @@ const Signup = () => {
               value={values.username}
               onChange={changeHandler}
             />
+            {errors.username && <p>{errors.username}</p>}
           </div>
 
           <div className="form-inputs">
@@ -40,6 +42,7 @@ const Signup = () => {
               value={values.email}
               onChange={changeHandler}
             />
+            {errors.email && <p>{errors.email}</p>}
           </div>
 
           <div className="form-inputs">
@@ -55,6 +58,7 @@ const Signup = () => {
               value={values.password}
               onChange={changeHandler}
             />
+            {errors.password && <p>{errors.password}</p>}
           </div>
 
           <div className="form-inputs">
@@ -70,6 +74,7 @@ const Signup = () => {
               value={values.password2}
               onChange={changeHandler}
             />
+            {errors.password2 && <p>{errors.password2}</p>}
           </div>
 
           <button className="form-input-btn" type="submit">
