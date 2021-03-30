@@ -2,11 +2,12 @@ import React from "react";
 import useForm from "../hooks/useForm";
 
 const Signup = () => {
-  const { values, changeHandler } = useForm;
+  const { values, changeHandler, submitHandler } = useForm();
+
   return (
     <div>
       <div className="form-content-right">
-        <form className="form">
+        <form className="form" onSubmit={submitHandler}>
           <h1>
             Get started with us today! Create your account by filling out he
             info below.
@@ -46,7 +47,7 @@ const Signup = () => {
               Password{" "}
             </label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               className="form-input"

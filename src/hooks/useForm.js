@@ -18,7 +18,11 @@ const useForm = () => {
     });
   };
 
-  return { values, changeHandler };
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
+  return { values, changeHandler, submitHandler };
 };
 
 export default useForm;
